@@ -1,5 +1,5 @@
 import React from 'react'
-import './App.css'
+import './App.scss'
 import logo from './logo.svg'
 import config from 'src/config'
 const App: React.FC = () => {
@@ -7,7 +7,7 @@ const App: React.FC = () => {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
+        <p className="test-cls">
           Edit <code>src/App.tsx</code> and save to reload. {config.baseUrl}
         </p>
         <a
