@@ -1,8 +1,10 @@
 interface IConfig {
+  authKey: string
   baseUrl: string
 }
 const config: IConfig = {
-  baseUrl: '/'
+  baseUrl: '/',
+  authKey: 'Authorization',
 }
 const env = process.env.REACT_APP_CONFIG_ENV || 'prod'
 // tslint:disable-next-line: no-var-requires

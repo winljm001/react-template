@@ -1,4 +1,4 @@
 const config = {
-  baseUrl:'/dev'
+  baseUrl: '/dev',
 }
 export default config
