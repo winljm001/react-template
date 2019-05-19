@@ -1,14 +1,14 @@
 import React from 'react'
 import './App.css'
 import logo from './logo.svg'
-import config, { testField } from 'src/config'
+import config from 'src/config'
 const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload. {config.baseUrl + testField.f}
+          Edit <code>src/App.tsx</code> and save to reload. {config.baseUrl}
         </p>
         <a
           className="App-link"
