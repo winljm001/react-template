@@ -2,7 +2,13 @@ import React from 'react'
 import './App.scss'
 import logo from './logo.svg'
 import config from 'src/config'
-const App: React.FC = () => {
+import dva from 'src/utils/dva'
+import models from 'src/models'
+const app = dva({
+  initialState: {},
+  models,
+})
+const App: React.FC = props => {
   return (
     <div className="App">
       <header className="App-header">
@@ -23,4 +29,4 @@ const App: React.FC = () => {
   )
 }
 
-export default App
+export default app.start(<App />)
