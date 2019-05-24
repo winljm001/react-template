@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { namespace } from 'src/models/home'
-import { connect } from 'dva'
+import { connect } from 'react-redux'
 
 interface IProps {
-  testState: string
+  testState?: string
   dispatch?: any
 }
 
