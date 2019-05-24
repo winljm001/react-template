@@ -1,13 +1,12 @@
-// import { hot } from 'react-hot-loader/root'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import * as serviceWorker from './serviceWorker'
+import App from 'src/routes'
 // import dva from 'dva'
 // import createHistory from 'history/createBrowserHistory'
 // import routers from 'src/routes'
 // import models from 'src/models'
-import App from 'src/pages/about'
 
 // const app = dva({
 //   initialState: {},
@@ -20,6 +19,7 @@ import App from 'src/pages/about'
 //   app.model(item as any)
 // })
 // app.start('#root')
+
 ReactDOM.render(<App />, document.getElementById('root'))
 
 // If you want your app to work offline and load faster, you can change

@@ -11,18 +11,18 @@ class Home extends Component<IProps> {
   render() {
     return (
       <div>
-        <h1>home</h1>
+        <h1>hdd2e</h1>
         <button
           onClick={() => {
             this.props.dispatch({
               type: `${namespace}/setState`,
               payload: {
-                testState: Math.random(),
+                testState: Math.random() + 1111111,
               },
             })
           }}
         >
-          点击触发dva reducer
+          点击触发dva reducer la
         </button>
         <h2>dva state:{this.props.testState}</h2>
       </div>
