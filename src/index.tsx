@@ -2,23 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import * as serviceWorker from './serviceWorker'
-import App from 'src/routes'
-// import dva from 'dva'
-// import createHistory from 'history/createBrowserHistory'
-// import routers from 'src/routes'
-// import models from 'src/models'
-
-// const app = dva({
-//   initialState: {},
-//   history: createHistory(),
-// })
-
-// // tslint:disable-next-line: no-var-requires
-// app.router(routers)
-// models.forEach(item => {
-//   app.model(item as any)
-// })
-// app.start('#root')
+import App from '@/routes'
 
 ReactDOM.render(<App />, document.getElementById('root'))
 

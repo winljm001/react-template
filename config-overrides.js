@@ -1,10 +1,14 @@
 /* config-overrides.js */
-// https://github.com/cdharris/react-app-rewire-hot-loader
-// https://github.com/gaearon/react-hot-loader#getting-started
-const { override, addBabelPlugins } = require('customize-cra')
-// module.exports = function override(config, env) {
-//   //do stuff with the webpack config...
-//   return config
-// }
 
-module.exports = override(...addBabelPlugins('react-hot-loader/babel'))
+const path = require('path')
+const { override, addBabelPlugins, addWebpackResolve } = require('customize-cra')
+
+module.exports = override(
+  // https://github.com/cdharris/react-app-rewire-hot-loader
+  // https://github.com/gaearon/react-hot-loader#getting-started
+  ...addBabelPlugins('react-hot-loader/babel'),
+  // https://github.com/facebook/create-react-app/issues/5118#issuecomment-464368371
+  addWebpackResolve({
+    alias: { '@': path.resolve(__dirname, 'src') },
+  })
+)

@@ -1,9 +1,9 @@
 import { hot } from 'react-hot-loader/root'
 import React from 'react'
-import Router from 'src/pages/router'
+import Router from '@/pages/router'
 
-import dva from 'src/dva/index'
-import models from 'src/models'
+import dva from '@/dva/index'
+import models from '@/models'
 
 import { connectRouter, routerMiddleware, ConnectedRouter } from 'connected-react-router'
 

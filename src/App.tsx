@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.scss'
 import logo from './logo.svg'
-import config from 'src/config'
+import config from '@/config'
 const App: React.FC = () => {
   return (
     <div className="App">

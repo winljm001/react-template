@@ -1,5 +1,5 @@
-import systemConfig from 'src/config'
-import { getLocalStorage } from 'src/utils/storage'
+import systemConfig from '@/config'
+import { getLocalStorage } from '@/utils/storage'
 import axios, { AxiosRequestConfig } from 'axios'
 import { errorCode, errorMsg, handleCommonError, handleNoCommontError } from './errorHandle'
 

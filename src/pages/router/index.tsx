@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { namespace } from 'src/models/home'
+import { namespace } from '@/models/home'
 import { connect } from 'react-redux'
 import { push } from 'connected-react-router'
 import { Link, Route } from 'react-router-dom'
@@ -15,7 +15,7 @@ class Home extends Component<IProps> {
   render() {
     return (
       <div>
-        <h1>hdd2e2222111</h1>
+        <h1>标题</h1>
         <button
           onClick={() => {
             this.props.dispatch({
