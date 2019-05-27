@@ -1,6 +1,6 @@
 import { hot } from 'react-hot-loader/root'
 import React from 'react'
-import Home from 'src/pages/home'
+import Router from 'src/pages/router'
 
 import dva from 'src/dva/index'
 import models from 'src/models'
@@ -22,7 +22,7 @@ const app = dva({
 
 const f: React.FC = app.start(
   <ConnectedRouter history={history}>
-    <Home />
+    <Router />
   </ConnectedRouter>
 )
 
