@@ -1,21 +1,15 @@
-import { create } from 'dva-core'
 import React from 'react'
-import { connect, Provider } from 'react-redux'
-import { DvaInitOptions } from './types'
+import { create } from 'dva-core'
+import { Provider } from 'react-redux'
 
-export { connect }
-declare var global: any
-
-export default function(options: DvaInitOptions) {
+export default function(options) {
   const app = create(options)
-  // HMR workaround
-  if (!global.registered) {
-    options.models.forEach(model => app.model(model))
-  }
-  global.registered = true
+  options.models.forEach(model => app.model(model))
   app.start()
   const store = app._store
-  app.start = (container: any) => () => <Provider store={store}>{container}</Provider>
+  app.start = container => {
+    return () => <Provider store={store}>{container}</Provider>
+  }
   app.getStore = () => store
 
   return app
