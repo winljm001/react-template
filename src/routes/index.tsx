@@ -13,7 +13,7 @@ export const history = createHistory()
 export const routerReducer = connectRouter(history)
 export const routerMiddlewareForDispatch = routerMiddleware(history)
 
-const app = dva({
+export const app = dva({
   models,
   initState: {},
   extraReducers: { router: routerReducer },

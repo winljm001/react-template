@@ -10,6 +10,7 @@ interface IProps {
 
 class Home extends Component<IProps> {
   goTo = route => {
+    // dispatch路由相关的操作
     this.props.dispatch(push(route.url))
   }
   render() {
