@@ -1,26 +1,28 @@
+import { hot } from 'react-hot-loader/root'
 import React from 'react'
-import './App.scss'
-import logo from './logo.svg'
-import config from '@/config'
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p className="test-cls">
-          Edit <code>src/App.tsx</code> and save to reload. {config.baseUrl}
-        </p>
+import Router from '@/routes'
 
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  )
-}
-export default App
+import dva from '@/utils/dva/index'
+import models from '@/models'
+
+import { connectRouter, routerMiddleware, ConnectedRouter } from 'connected-react-router'
+
+const createHistory = require('history').createBrowserHistory
+export const history = createHistory()
+export const routerReducer = connectRouter(history)
+export const routerMiddlewareForDispatch = routerMiddleware(history)
+
+export const app = dva({
+  models,
+  initState: {},
+  extraReducers: { router: routerReducer },
+  onAction: [routerMiddlewareForDispatch],
+})
+
+const f: React.FC = app.start(
+  <ConnectedRouter history={history}>
+    <Router />
+  </ConnectedRouter>
+)
+
+export default (process.env.NODE_ENV === 'development' ? hot(f) : f)

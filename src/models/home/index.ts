@@ -3,7 +3,7 @@ export { namespace }
 export default {
   namespace,
   state: {
-    testState: '1111ffffvvvv1111',
+    testState: Math.random(),
   },
   effects: {
     *test({ payload }, { call, put }) {},

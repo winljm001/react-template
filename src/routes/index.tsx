@@ -1,29 +1,61 @@
-import { hot } from 'react-hot-loader/root'
-import React from 'react'
-import Router from '@/pages/router'
+import React, { Component } from 'react'
+import { namespace } from '@/models/home'
+import { connect } from 'react-redux'
+import { push } from 'connected-react-router'
+import { Link, Route } from 'react-router-dom'
+import Home from '@/pages/home'
+import About from '@/pages/about'
+import styles from './style.module.scss'
+interface IProps {
+  testState?: string
+  dispatch?: any
+}
+class Router extends Component<IProps> {
+  goTo = route => {
+    // dispatch路由相关的操作
+    this.props.dispatch(push(route.url))
+  }
+  render() {
+    return (
+      <div className={styles.page}>
+        <button
+          onClick={() => {
+            this.props.dispatch({
+              type: `${namespace}/setState`,
+              payload: {
+                testState: Math.random(),
+              },
+            })
+          }}
+        >
+          点击触发dva reducer
+        </button>
+        <h2>dva state:{this.props.testState}</h2>
+        <>
+          <ul>
+            <li>
+              <Link to="/"> Home </Link>
+            </li>
+            <li>
+              <Link to="/about"> About </Link>
+            </li>
+          </ul>
+          <div>
+            <button onClick={() => this.goTo({ url: '/about' })}>使用dispatch跳转到About</button>
+          </div>
+          <div style={{ padding: '150px' }}>
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+          </div>
+        </>
+      </div>
+    )
+  }
+}
 
-import dva from '@/utils/dva/index'
-import models from '@/models'
-
-import { connectRouter, routerMiddleware, ConnectedRouter } from 'connected-react-router'
-
-// tslint:disable-next-line: no-var-requires
-const createHistory = require('history').createBrowserHistory
-export const history = createHistory()
-export const routerReducer = connectRouter(history)
-export const routerMiddlewareForDispatch = routerMiddleware(history)
-
-export const app = dva({
-  models,
-  initState: {},
-  extraReducers: { router: routerReducer },
-  onAction: [routerMiddlewareForDispatch],
-})
-
-const f: React.FC = app.start(
-  <ConnectedRouter history={history}>
-    <Router />
-  </ConnectedRouter>
-)
-
-export default (process.env.NODE_ENV === 'development' ? hot(f) : f)
+const mapStateToProps = models => {
+  return {
+    ...models[namespace],
+  }
+}
+export default connect(mapStateToProps)(Router)
