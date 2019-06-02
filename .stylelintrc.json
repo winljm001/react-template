@@ -1,4 +1,5 @@
 {
+  "ignoreFiles": ["**/*.tsx", "**/*.ts"],
   "extends": ["stylelint-config-standard", "stylelint-config-recess-order"],
   "plugins": ["stylelint-scss"],
   "rules": {

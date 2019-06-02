@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { push } from 'connected-react-router'
 import { Link, Route } from 'react-router-dom'
 import Home from '@/pages/home'
-
+import styles from './style.module.scss'
 interface IProps {
   testState?: string
   dispatch?: any
@@ -16,7 +16,7 @@ class Router extends Component<IProps> {
   }
   render() {
     return (
-      <div>
+      <div className={styles.page}>
         <h1>标题</h1>
         <button
           onClick={() => {

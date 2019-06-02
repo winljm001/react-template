@@ -1,0 +1,6 @@
+@import 'assets/styles/mixin.scss';
+
+.page {
+  @include flex-center();
+  flex-direction: column;
+}
