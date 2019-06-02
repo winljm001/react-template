@@ -3,12 +3,13 @@ import { namespace } from '@/models/home'
 import { connect } from 'react-redux'
 import { push } from 'connected-react-router'
 import { Link, Route } from 'react-router-dom'
+import Home from '@/pages/home'
+
 interface IProps {
   testState?: string
   dispatch?: any
 }
-
-class Home extends Component<IProps> {
+class Router extends Component<IProps> {
   goTo = route => {
     // dispatch路由相关的操作
     this.props.dispatch(push(route.url))
@@ -47,8 +48,8 @@ class Home extends Component<IProps> {
             </button>
           </div>
           <div style={{ padding: '150px' }}>
-            <Route exact path="/" component={() => <h1>about</h1>} />
-            <Route path="/about" component={() => <h1>home</h1>} />
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={() => <h1>about</h1>} />
           </div>
         </div>
       </div>
@@ -61,4 +62,4 @@ const mapStateToProps = models => {
     ...models[namespace],
   }
 }
-export default connect(mapStateToProps)(Home)
+export default connect(mapStateToProps)(Router)

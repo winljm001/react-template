@@ -1,12 +1,6 @@
 {
-  "extends": [
-    "tslint:recommended",
-    "tslint-react",
-    "tslint-config-prettier"
-  ],
-  "rulesDirectory": [
-    "tslint-plugin-prettier"
-  ],
+  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "rulesDirectory": ["tslint-plugin-prettier"],
   "rules": {
     "prettier": true,
     "interface-name": false,
@@ -69,7 +63,8 @@
     "no-default-export": false,
     "no-shadowed-variable": false,
     "max-classes-per-file": false,
-    "ordered-imports": false
+    "ordered-imports": false,
+    "no-var-requires": false
   },
   "linterOptions": {
     "exclude": ["./src/serviceWorker.ts"]
