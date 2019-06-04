@@ -43,7 +43,7 @@ class Router extends Component<IProps> {
           <div>
             <button onClick={() => this.goTo({ url: '/about' })}>使用dispatch跳转到About</button>
           </div>
-          <div style={{ padding: '150px' }}>
+          <div style={{ padding: '150px', width: '100%' }}>
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
           </div>
