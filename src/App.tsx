@@ -25,11 +25,11 @@ export const app = dva({
 })
 
 const f: React.FC = app.start(
-  <LocaleProvider locale={zhCN}>
-    <ConnectedRouter history={history}>
+  <ConnectedRouter history={history}>
+    <LocaleProvider locale={zhCN}>
       <Router />
-    </ConnectedRouter>
-  </LocaleProvider>
+    </LocaleProvider>
+  </ConnectedRouter>
 )
 
 export default (process.env.NODE_ENV === 'development' ? hot(f) : f)
