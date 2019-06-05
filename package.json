@@ -8,6 +8,7 @@
     "dev": "cross-env REACT_APP_CONFIG_ENV=dev react-app-rewired start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "lint": "npm run lint:ts & npm run lint:css",
     "lint:ts": "tsc -p tsconfig.prod.json --noEmit && tslint -c tslint.json '@/**/*.{ts,tsx}' --fix --format verbose",
     "lint:scss": "stylelint 'src/**/*.scss' --fix",
     "lint:css": "stylelint 'src/**/*.css' 'src/**/*.scss' 'src/**/*.less' --fix"
@@ -15,8 +16,12 @@
   "dependencies": {
     "antd": "^3.19.2",
     "axios": "^0.18.0",
+    "babel-plugin-import": "^1.12.0",
     "dva-core": "^1.4.0",
     "http-proxy-middleware": "^0.19.1",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
+    "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",

@@ -5,5 +5,7 @@
 }
 
 .test {
+  @include flex-center();
+  flex-direction: column;
   color: green;
 }
